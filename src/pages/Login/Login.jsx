@@ -1,10 +1,12 @@
 import React from 'react'
+import LoginPage from '../../components/LoginPage'
 import "./Login.scss"
 
 const Login = () => {
   return (
-    <div>
-        <center>This is login page</center>
+    <div className='page'>
+        <LoginPage />
+        
     </div>
   )
 }
