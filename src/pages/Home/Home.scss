@@ -1,0 +1,17 @@
+.homepage{
+    margin: 100px 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    place-content: center;
+   
+    button{
+        padding: 10px 30px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        width: 200px;
+        height: 50px;
+    }
+}
