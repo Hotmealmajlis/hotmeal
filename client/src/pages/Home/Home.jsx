@@ -9,6 +9,11 @@ const Home = () => {
     }
   return (
     <div className='homepage'>
+      <div className='links'>
+
+      <button onClick={()=>navigate('/login')}>Login</button>
+      <button onClick={()=>navigate('/register')}>Signup</button>
+      </div>
         <div>
 
         <button onClick={goToSeller}>Seller</button>
@@ -17,6 +22,7 @@ const Home = () => {
 
         <button onClick={() => navigate('/buyer')}>Buyyer</button>
         </div>
+        
     </div>
   )
 }
