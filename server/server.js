@@ -4,10 +4,12 @@ import cors from 'cors'
 import bodyParser from 'body-parser';
 import routes from './routes/index.js';
 import passport  from 'passport';
-// import passportConfig from 
+import initializePassport from './config/passport.js'
 
 const app = express();
 const port = 4000;
+
+initializePassport(passport)
 
 app.use(cors());
 app.use(bodyParser.json())

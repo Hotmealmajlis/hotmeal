@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
-const {Schema} = mongoose;
+import { ROLES } from "../constants/index.js";
+
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
@@ -19,7 +21,9 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    default: 'user',
+    require: true,
+    default: ROLES.User,
+    enum: [ROLES.Admin, ROLES.User, ROLES.Merchant],
   },
 
 });

@@ -3,7 +3,8 @@ import User from '../models/UserModel.js'
 import jwt from "jsonwebtoken"
 
 export const register = async (req, res)=>{
-    const { username, email, password } = req.body
+    const { username, email, password, role } = req.body
+
     const checkUser = await User.findOne({email})
     if(checkUser){
         res.status(406).json({message: "user already exists!"})
@@ -12,11 +13,11 @@ export const register = async (req, res)=>{
     const saltRounds = 10
     const salt = await bcrypt.genSaltSync(saltRounds)
     const hashedPassword = await bcrypt.hashSync(password, salt)
-
     const user = await User({
         email,
         password:hashedPassword,
-        username
+        username,
+        role
     })
     await user.save()
     res.status(201).json({message: "user created"})
