@@ -6,6 +6,10 @@ import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup';
 import BuyyerHome from './pages/BuyyerHome/BuyyerHome';
 import SellerHome from './pages/SellerHome/SellerHome';
+import ShopDetailsPage from './pages/ShopDetails/ShopDetailsPage';
+import MenuDetailspage from './pages/ShopDetails/MenuDetailspage';
+import ShopRegistrationPage from './pages/ShopRegistration/ShopRegistrationPage';
+import MenuRegistrationPage from './pages/ShopRegistration/MenuRegistrationPage';
 
 
 function App() {
@@ -18,6 +22,11 @@ function App() {
        <Route path="/register" element={<Signup/>}/>
        <Route path='/buyer' element={<BuyyerHome/>} />
        <Route path='/seller' element={<SellerHome/>} />
+       <Route path='/shopdetails' element={<ShopDetailsPage/>} />
+       <Route path='/menudetails' element={<MenuDetailspage/>} />
+       <Route path='/shopregistration' element={<ShopRegistrationPage/>} />
+       <Route path='/menuregistration' element={<MenuRegistrationPage/>} />
+
 
       </Routes>
      

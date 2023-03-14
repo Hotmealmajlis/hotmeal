@@ -11,7 +11,7 @@ function SignupPage() {
   }
 
   return (
-    <div className='page'>
+    <div className='loginForm'>
       <h1>Signup</h1>
       <form onSubmit={handleSignup}>
      
@@ -27,7 +27,10 @@ function SignupPage() {
           <input className='inputField' placeholder='Email' type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       
         <br />
+        <div className="btn-section">
+
         <button className='submitBtn' type="submit">Sign up</button>
+        </div>
       </form>
     </div>
   );

@@ -1,29 +1,24 @@
 import React from 'react'
+import AboutPage from '../../components/AboutPage'
+import AboutRegister from '../../components/AboutRegister'
+import Hero from '../../components/Hero'
+import MenuPage from '../../components/MenuPage'
+import ShopsPage from '../../components/ShopsPage'
 import './Home.scss'
-import { useNavigate } from 'react-router-dom'
+
 
 const Home = () => {
-    const navigate = useNavigate()
-    const goToSeller = () =>{
-         navigate('/seller')
-    }
+   
   return (
-    <div className='homepage'>
-      <div className='links'>
+    <>
 
-      <button onClick={()=>navigate('/login')}>Login</button>
-      <button onClick={()=>navigate('/register')}>Signup</button>
-      </div>
-        <div>
-
-        <button onClick={goToSeller}>Seller</button>
-        </div>
-        <div>
-
-        <button onClick={() => navigate('/buyer')}>Buyyer</button>
-        </div>
-        
-    </div>
+    <Hero/>
+    <AboutPage/>
+    <AboutRegister/>
+    <ShopsPage/>
+    <MenuPage/>
+    </>
+    
   )
 }
 

@@ -4,8 +4,9 @@ import "./Signup.scss"
 
 const Signup = () => {
   return (
-    <div>
+    <div className='page'>
         <SignupPage/>
+        <div className="signupimg"></div>
     </div>
   )
 }

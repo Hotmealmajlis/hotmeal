@@ -1,0 +1,46 @@
+.shop-details{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    height: 100vh;
+    .left-section{
+        display: grid;
+        place-content: center;
+        img{
+            width: 400px;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+
+        }
+    }
+    .right-section{
+        display: grid;
+        place-content: center;
+        .detail{
+            display: grid;
+            place-items: start;
+            padding: 20px;
+            box-shadow: 1px 2px 21px -4px grey;
+            border-radius: 10px;
+            margin-right: 5%;
+            h2{
+                margin: 0;
+            }
+            h4{
+                color: grey;
+                margin-bottom: 5px;
+            }
+            p{
+                text-align: left;
+                font-weight: lighter;
+            }
+            button{
+                padding: 10px 20px;
+                background: white;
+                font-weight: bold;
+                border: 2px solid black;
+                font-size: 16px;
+            }
+        }
+    }
+}

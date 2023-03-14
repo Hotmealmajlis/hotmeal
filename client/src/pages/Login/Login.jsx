@@ -6,6 +6,7 @@ const Login = () => {
   return (
     <div className='page'>
         <LoginPage />
+        <div className="bgimg"></div>
         
     </div>
   )

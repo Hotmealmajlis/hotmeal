@@ -1,9 +1,47 @@
 .homepage{
-    margin: 100px 0 0 0;
+    margin: 5rem 0 0 0;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
+    height: 130vh;
+    grid-template-columns: 1fr 1fr;
+    background-image: url('../../images/homeImg.jpeg');
+    background-repeat: no-repeat;
     place-content: center;
+    background-size: cover;
+    .left-section{
+        background-color: rgba(0, 0, 0, 0.25);
+        width: 400px;
+        text-align: left;
+        padding: 2rem 5rem 2rem 10rem;
+        line-height: 1.4rem;
+        color: white;
+        position: relative;
+        .side-line{
+            position: absolute;
+            width: 3px;
+            height: 50%;
+            left: 6rem;
+            padding: 3rem 0 3rem 0;
+            background-color: white;
+        }
+      
+        h1{
+            font-size: 50px;
+            font-weight: bolder;
+        }
+        h4{
+            font-size: 2.2rem;
+            font-weight: 100;
+           
+        }
+        .btn-explore{
+            width: 150px;
+            padding: 10px 20px;
+            border: 2px solid white;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    
    
     button{
         padding: 10px 30px;
@@ -26,4 +64,142 @@
             width: 100px;
         }
     }
+}
+
+//about-page
+.about-page{
+  
+    height: 100vh;
+    background-color: white;
+    // display: grid;
+    
+    padding: 5rem 0 0 5rem;
+    .heading-section{
+          h1{
+            text-align: left;
+            font-size: 35px;
+            font-weight: bolder;
+          }
+    }
+    .content-section{
+        width: 40rem;
+        display: grid;
+        p{
+            font-weight: lighter;
+            text-align: left;
+            color: grey;
+        }
+       
+    }
+}
+.btn-register{
+    width: 10rem;
+    margin-top: 20px;
+     padding: 10px 20px;
+     border: 3px solid green;
+     background-color: white;
+     align-items: left;
+     font-size: 1rem;
+     font-weight: bold;
+ }
+
+// about register page
+
+.about-register{
+
+    height: 98vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .left-section{
+        background-image: url("../../images/aboutregisterimg.jpeg");
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+    }
+    .right-section{
+        background-color: #110400;
+
+        .heading-section{
+            max-width: 400px;
+            text-align: left;
+            color: green;
+            font-size: 20px;
+            line-height: 1.2;
+            padding: 10px 0px 0px 20px;
+        }
+        .content-section{
+            text-align: left;
+            max-width: 500px;
+            padding: 0 20px;
+            color: grey;
+            font-size: larger;
+        }
+        .btn-section-aboutregister{
+            display: grid;
+            place-items: start;
+            padding-left: 20px;
+            button{
+                width: 200px;
+                background-color: #110400;
+                color: grey;
+                
+            }
+        }
+    }
+}
+
+
+// shops page css
+
+.shops-page{
+    padding: 0;
+    width: auto;
+    height: auto;
+    background-color: #110400;
+    padding: 3rem 0 0 5rem;
+    .heading{
+        text-align: left;
+            color: green;
+            font-size: 20px;
+            line-height: 1.2;
+            padding: 10px 0px 0px 20px;
+    }
+    .card-section{
+        padding: 50px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 80px 0;
+        .card{
+            height: 380px;
+            width: 280px;
+            background: white;
+            border-radius: 10px;
+            img{
+                width: 200px;
+                height: 300px;
+                margin-top: -20px;
+                box-shadow: 1px 2px 25px 5px rgb(77, 77, 77);
+                transition: all 0.8s ease-in-out;
+            }
+            h3{
+                padding: 10px;
+                margin: 0;
+            }
+            button{
+                width: 100px;
+                padding: 5px 2px;
+                border: 2px solid green;
+                background: white;
+                font-weight: bold;
+            }
+        }
+        .card:hover{
+            img{
+                transform: translateY(-10px);
+                box-shadow: 0 5px 15px 5px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+    
+               
 }
