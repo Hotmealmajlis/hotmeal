@@ -3,7 +3,7 @@ import { ROLES } from "../constants/index.js";
 
 const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   username: { type: String, required: true, unique: true },
   email: {
     type: String,
@@ -28,4 +28,4 @@ const userSchema = new Schema({
 
 });
 
-export default new mongoose.model('User', userSchema);
+export default new mongoose.model('User', UserSchema);
