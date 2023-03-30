@@ -28,6 +28,8 @@ function LoginPage() {
   return (
     <div className='loginForm'>
       <h1>Login Page</h1>
+      <div className="form">
+      
       <div>
         
         <input className='inputField' placeholder='Email' type="email" value={email} onChange={handleEmailChange} />
@@ -36,7 +38,11 @@ function LoginPage() {
         
         <input className='inputField' type="password" placeholder='Password' value={password} onChange={handlePasswordChange} />
       </div>
-      <button className='submitBtn' onClick={handleSubmit}>Submit</button>
+      <div className='btn-section'>
+      <button className='submitBtn' onClick={handleSubmit}>Login</button>
+      </div>
+      </div>
+      
       {message && <p>{message}</p>}
     </div>
   );

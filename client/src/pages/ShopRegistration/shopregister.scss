@@ -1,0 +1,62 @@
+.shop-register,.menu-register{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    .left-section{
+        background-image: url("../../images/img2.jpeg");
+        background-size: cover;
+        display: grid;
+        place-content: center;
+        .content-section{
+           background-color: rgb(0, 0, 0, 0.30);
+           padding: 30px 20px;
+           display: grid;
+           place-content: center;
+           height: 50vh;
+            h3{
+                color: white;
+                font-size: 24px;
+            }
+        }
+    }
+    .right-section{
+        padding: 20px;
+        display: grid;
+        place-content: center;
+        input,textarea{
+            background-color: rgb(235, 235, 235);
+            color: black;
+        }
+            .btn{
+                width: 150px;
+                font-weight: bold;
+                background: white;
+                padding: 10px;
+                margin: 10px;
+            }
+            input[type="time"] {
+                background-color: #fff;
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 8px;
+                box-sizing: border-box;
+                width: 100px;
+              }
+              input[type="time"]::-webkit-calendar-picker-indicator {
+                color: #999;
+              }
+             
+              
+              
+              
+              
+              
+    }
+}
+.menu-register{
+    .left-section{
+        background-image: url("../../images/img3.jpeg");
+    }
+}
