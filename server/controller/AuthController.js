@@ -2,6 +2,8 @@ import bcrypt from 'bcrypt'
 import User from '../models/UserModel.js'
 import jwt from "jsonwebtoken"
 
+const secret = "secret"
+
 export const register = async (req, res)=>{
     try {
       const { username, email, password, role } = req.body;
@@ -21,7 +23,7 @@ export const register = async (req, res)=>{
       }
 
       const existingUser = await User.findOne({ email });
-      
+
       if (existingUser) {
         res.status(406).json({ message: "user already exists!" });
         return;
@@ -42,7 +44,9 @@ export const register = async (req, res)=>{
         id: registeredUser.id,
       };
       const token = jwt.sign(payload, secret);
+
       res.status(200).json({
+        message: "user Created :)",
         success: true,
         token: `Bearer ${token}`,
         user: {
@@ -50,13 +54,12 @@ export const register = async (req, res)=>{
           username: registeredUser.username,
           email: registeredUser.email,
           role: registeredUser.role,
-        },
+        }
       });
 
-      res.status(201).json({ message: "user created" });
     } catch (error) {
       res.status(400).json({
-        error: "Your request could not be processed!",
+        error
       });
     }
 }
@@ -95,12 +98,12 @@ export const login = async (req, res)=>{
         }
 
         const token = jwt.sign(payload, "secret")
-        res.json({message: "user logged in successfully :)", token, user})
         if (!token) {
             throw new Error();
         }
 
         res.status(200).json({
+            message: "user logged in successfully :)",
             success: true,
             token: `Bearer ${token}`,
             user: {
