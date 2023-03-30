@@ -1,7 +1,7 @@
-const Mongoose = require("mongoose");
-import slug from 'mongoose-slug-generator'
+import mongoose from "mongoose";
+import slug from "mongoose-slug-generator";
 
-const { Schema } = Mongoose;
+const { Schema } = mongoose;
 
 const options = {
   separator: "-",
@@ -9,7 +9,7 @@ const options = {
   truncate: 120,
 };
 
-Mongoose.plugin(slug, options);
+// mongoose.plugin(slug, options);
 
 // Product Schema
 const ProductSchema = new Schema({
@@ -17,11 +17,14 @@ const ProductSchema = new Schema({
     type: String,
     trim: true,
   },
-  slug: {
+  MerchantId: {
     type: String,
-    slug: "name",
-    unique: true,
   },
+  // slug: {
+  //   type: String,
+  //   slug: "name",
+  //   unique: true,
+  // },
   imageUrl: {
     type: String,
   },

@@ -1,61 +1,105 @@
 import { Router } from "express";
+// const router = express.Router();
+
 import mongoose from "mongoose";
 
-import Order from '../models/OrderModel'
-import Cart from '../models/CartModel'
-import Product from '../models/ProductModel'
+import Order from '../models/OrderModel.js'
+import Cart from '../models/CartModel.js'
+import Product from '../models/ProductModel.js'
+import { ROLES } from "../constants/index.js";
 
-import { ROLES, CART_ITEM_STATUS } from "../constants";
-import router from "./AuthApi";
+
+const router = Router()
 
 router.post('/add', async (req, res) => {
-  try {
-    const cart = req.body.cartId;
-    const total = req.body.total;
-    const user = req.user._id;
-
-    const order = new Order({
-      cart,
-      user,
-      total
+    const { cartId, total, userId, orderId } = req.body;
+    const order = await Order({
+      cartId,
+      userId,
+      total,
+      orderId
     });
-
-    const orderDoc = await order.save();
-
-    const newOrder = {
-      _id: orderDoc._id,
-      created: orderDoc.created,
-      user: orderDoc.user,
-      total: orderDoc.total,
-      products: cartDoc.products
-    };
-
-  }
-   catch (error) {
-    res.status(400).json({
-      error: 'Your request could not be processed. Please try again.'
-    });
-  }
+    await order.save();
+    res.status(201).json({ message: "Order Placed :)" });
 });
 
-router.delete("/cancel/:orderId", auth, async (req, res) => {
-  try {
-    const orderId = req.params.orderId;
+// router.get("/:orderId", auth, async (req, res) => {
+//   try {
+//     const orderId = req.params.orderId;
 
-    const order = await Order.findOne({ _id: orderId });
-    const foundCart = await Cart.findOne({ _id: order.cart });
+//     let orderDoc = null;
 
-    increaseQuantity(foundCart.products);
+//     if (req.user.role === ROLES.Admin) {
+//       orderDoc = await Order.findOne({ _id: orderId }).populate({
+//         path: "cart",
+//         populate: {
+//           path: "products.product",
+//           populate: {
+//             path: "brand",
+//           },
+//         },
+//       });
+//     } else {
+//       const user = req.user._id;
+//       orderDoc = await Order.findOne({ _id: orderId, user }).populate({
+//         path: "cart",
+//         populate: {
+//           path: "products.product",
+//           populate: {
+//             path: "brand",
+//           },
+//         },
+//       });
+//     }
 
-    await Order.deleteOne({ _id: orderId });
-    await Cart.deleteOne({ _id: order.cart });
+//     if (!orderDoc || !orderDoc.cart) {
+//       return res.status(404).json({
+//         message: `Cannot find order with the id: ${orderId}.`,
+//       });
+//     }
 
-    res.status(200).json({
-      success: true,
-    });
-  } catch (error) {
-    res.status(400).json({
-      error: "Your request could not be processed. Please try again.",
-    });
-  }
-});
+//     let order = {
+//       _id: orderDoc._id,
+//       total: orderDoc.total,
+//       created: orderDoc.created,
+//       totalTax: 0,
+//       products: orderDoc?.cart?.products,
+//       cartId: orderDoc.cart._id,
+//     };
+
+//     order = store.caculateTaxAmount(order);
+
+//     res.status(200).json({
+//       order,
+//     });
+//   } catch (error) {
+//     res.status(400).json({
+//       error: "Your request could not be processed. Please try again.",
+//     });
+//   }
+// });
+
+// router.delete("/cancel/:orderId", auth, async (req, res) => {
+//   try {
+//     const orderId = req.params.orderId;
+
+//     const order = await Order.findOne({ _id: orderId });
+//     const foundCart = await Cart.findOne({ _id: order.cart });
+
+//     increaseQuantity(foundCart.products);
+
+//     await Order.deleteOne({ _id: orderId });
+//     await Cart.deleteOne({ _id: order.cart });
+
+//     res.status(200).json({
+//       success: true,
+//     });
+//   } catch (error) {
+//     res.status(400).json({
+//       error: "Your request could not be processed. Please try again.",
+//     });
+//   }
+// });
+
+
+export default router

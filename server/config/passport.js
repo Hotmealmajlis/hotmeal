@@ -1,11 +1,11 @@
+import passport from 'passport'
 import pkg from 'passport-jwt'
-import User from '../models/UserModel'
+import User from '../models/UserModel.js'
 
 const JwtStrategy = pkg.Strategy
 const ExtractJwt = pkg.ExtractJwt
 
 let opts = {}
-
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrkey = "secret";
 

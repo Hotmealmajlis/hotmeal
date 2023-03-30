@@ -3,13 +3,13 @@ import connect from './db/mongodb.js';
 import cors from 'cors'
 import bodyParser from 'body-parser';
 import routes from './routes/index.js';
-import passport  from 'passport';
-import initializePassport from './config/passport.js'
+// import passport  from 'passport';
+// import initializePassport from './config/passport.js'
 
 const app = express();
 const port = 4000;
 
-initializePassport(passport)
+// initializePassport(passport)
 
 app.use(cors());
 app.use(bodyParser.json())

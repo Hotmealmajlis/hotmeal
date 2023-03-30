@@ -1,6 +1,6 @@
-const Mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const { Schema } = Mongoose;
+const { Schema } = mongoose;
 
 const CartItemSchema = new Schema({
   product: {
@@ -26,29 +26,29 @@ const CartItemSchema = new Schema({
   },
   status: {
     type: String,
-    default: CART_ITEM_STATUS.Not_processed,
-    enum: [
-      CART_ITEM_STATUS.Not_processed,
-      CART_ITEM_STATUS.Processing,
-      CART_ITEM_STATUS.Shipped,
-      CART_ITEM_STATUS.Delivered,
-      CART_ITEM_STATUS.Cancelled,
-    ],
+    // default: CART_ITEM_STATUS.Not_processed,
+    // enum: [
+    //   CART_ITEM_STATUS.Not_processed,
+    //   CART_ITEM_STATUS.Processing,
+    //   CART_ITEM_STATUS.Shipped,
+    //   CART_ITEM_STATUS.Delivered,
+    //   CART_ITEM_STATUS.Cancelled,
+    // ],
   },
 });
 
-module.exports = mongoose.model("CartItem", CartItemSchema);
+export const CartItem = mongoose.model("CartItem", CartItemSchema);
 
 const CartSchema = new Schema({
   products: [CartItemSchema],
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: "User",
   },
   updated: Date,
   created: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 export default new mongoose.model("Cart", CartSchema);

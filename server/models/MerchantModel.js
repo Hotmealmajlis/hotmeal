@@ -1,6 +1,6 @@
-const Mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const { Schema } = Mongoose;
+const { Schema } = mongoose;
 
 const MerchantSchema = new Schema({
   name: {
@@ -10,9 +10,6 @@ const MerchantSchema = new Schema({
     type: String,
   },
   phoneNumber: {
-    type: String,
-  },
-  brandName: {
     type: String,
   },
   created: {

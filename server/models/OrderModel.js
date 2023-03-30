@@ -1,20 +1,21 @@
-const Mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const { Schema } = Mongoose;
+const { Schema } = mongoose;
 
 const OrderSchema = new Schema({
-
-  cart: {
-    type: Schema.Types.ObjectId,
-    ref: "Cart",
+  cartId: {
+    // type: Schema.Types.ObjectId,
+    // ref: "Cart",
+    type: String
   },
   orderId: {
     type: String,
     unique: true,
   },
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+  userId: {
+    // type: Schema.Types.ObjectId,
+    // ref: "User",
+    type: String
   },
   total: {
     type: Number,
