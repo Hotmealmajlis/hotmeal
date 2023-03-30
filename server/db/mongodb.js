@@ -5,7 +5,7 @@ async function connect(){
 
   await mongoose
     .connect(
-      "mongodb+srv://hotmeals:hotmeals123@cluster0.ydq7zmt.mongodb.net/?retryWrites=true&w=majority"
+      "mongodb+srv://Hotmealadmin:admin123@hotmeals.bvboanr.mongodb.net/?retryWrites=true&w=majority"
     )
     .then(() => {
       console.log("db connection success :)");
