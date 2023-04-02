@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import "./shopregister.scss"
 
@@ -8,11 +10,31 @@ function MenuRegistrationPage() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
 
+  const navigate = useNavigate()
+
+  const {merchantId}= useParams()
+  console.log(merchantId)
+
   // Function to handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Code to submit form data to server or store in state
+    const response = await fetch('http://localhost:4000/product/add', {
+      method: 'POST',
+      body: JSON.stringify({
+        name,
+        price,
+        merchantId,
+         }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    console.log(data.message)
+    // setMessage(data.message);
+    navigate("/")
   };
 
   return (
