@@ -1,8 +1,15 @@
 import React from 'react'
 import foodImg from "../images/food.jpeg"
 import MenuPage from './MenuPage'
+import { useNavigate } from 'react-router-dom';
+
 
 const ShopDetails = () => {
+  const navigate = useNavigate()
+
+  const addMenu = () =>{
+    navigate('/menuregistration')
+  }
   return (
     <>
     
@@ -19,6 +26,8 @@ const ShopDetails = () => {
          A restaurant, also known as an eatery or a dining establishment, is a place where food and drinks are served to customers. Restaurant shops come in all shapes and sizes, from small cafes to large chain restaurants</p>
 
          <button>View Menu</button>
+         <button onClick={addMenu}>Add Menu</button>
+
        </div>
        </div>
     </div>

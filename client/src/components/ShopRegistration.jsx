@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const ShopRegistration = () => {
+
+  const navigate = useNavigate()
+
   const [shopName, setShopName] = useState('');
   const [ownerName, setOwnerName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
@@ -10,9 +14,26 @@ const ShopRegistration = () => {
   const [openingTime, setOpeningTime] = useState('');
   const [closingTime, setClosingTime] = useState('');
 
-  const handleSubmit = (e) => {
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // code to submit form data goes here
+    const response = await fetch('http://localhost:4000/merchant/add', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: shopName,
+        email: email,
+        phoneNumber: contactNumber 
+         }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    console.log(data.message)
+    setMessage(data.message);
+    navigate("/shopdetails")
   };
 
   return (
@@ -98,6 +119,7 @@ const ShopRegistration = () => {
 <br />
       <button className='btn' type="submit">Register</button>
     </form>
+  {message && <p style={{color:"orange"}}>{message}</p>}
     </div>
     
     </div>
