@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react'
 
 const Home = () => {
   const [shopData, setShopData] = useState()
+  const [menuData, setMenuData] = useState()
 
     const getShops = async(e) =>{
     
@@ -32,9 +33,33 @@ const Home = () => {
       console.log("merchant datas getted succesfully")
     }
   }
+  
+
+const getMenus = async(e) =>{
+
+const res = await fetch("http://localhost:4000/product/view",{
+  method: "GET",
+  headers: {
+    "Content-Type" : "application/json",
+  },
+ 
+})
+const data = await res.json()
+console.log("menus",data)
+
+
+if(res.status === 422 || !data){
+ 
+  console.log("err")
+}else{
+  setMenuData(data)
+  console.log("menu datas getted succesfully")
+}
+}
 
     useEffect(() =>{
       getShops()
+      getMenus()
     },[])
    
   return (
@@ -43,8 +68,8 @@ const Home = () => {
     <Hero/>
     <AboutPage/>
     <AboutRegister/>
-    <ShopsPage shopData={shopData}/>
-    <MenuPage/>
+    <ShopsPage shopData={shopData} />
+    <MenuPage menuData={menuData}/>
     </>
     
   )

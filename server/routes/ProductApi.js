@@ -41,5 +41,23 @@ router.get("/view/:merchantId", async (req, res) => {
   }
 });
 
+//view all products
+
+router.get("/view/", async (req, res) => {
+  
+  try {
+    const product = await Product.find();
+    
+    
+    res.status(201).json(product);
+  } catch (error) {
+    res.status(400).json({
+      error
+    });
+  }
+});
+
+
+
 
 export default router;
