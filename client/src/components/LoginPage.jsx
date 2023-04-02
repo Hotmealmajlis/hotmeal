@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import {useNavigate} from "react-router-dom"
 
 function LoginPage() {
+
+  const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -14,7 +17,7 @@ function LoginPage() {
   };
 
   const handleSubmit = async () => {
-    const response = await fetch('/api/login', {
+    const response = await fetch('http://localhost:4000/auth/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: {
@@ -23,6 +26,8 @@ function LoginPage() {
     });
     const data = await response.json();
     setMessage(data.message);
+    navigate("/")
+
   };
 
   return (
@@ -43,7 +48,7 @@ function LoginPage() {
       </div>
       </div>
       
-      {message && <p>{message}</p>}
+      {message && <p style={{color: "orange"}}>{message}</p>}
     </div>
   );
 }

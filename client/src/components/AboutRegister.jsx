@@ -1,7 +1,14 @@
 import React from 'react'
+import {useNavigate} from "react-router-dom"
 
 
 const AboutRegister = () => {
+  const navigate = useNavigate()
+
+  const registerShop = () => {
+    navigate("/shopregistration")
+  }
+
   return (
     <div className='about-register'>
        <div className="left-section">
@@ -20,7 +27,7 @@ const AboutRegister = () => {
        <p style={{"marginTop" : "-15px"}}>Restaurants typically have menus that offer a variety of food and drink options, and customers can either order a la carte or choose from set menus or specials.</p>
        </div>
        <div className="btn-section-aboutregister">
-         <button className="btn-register">Clik To Register</button>
+         <button className="btn-register" onClick={registerShop}>Clik To Register</button>
        </div>
        </div>
     </div>

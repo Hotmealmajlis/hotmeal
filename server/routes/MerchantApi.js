@@ -6,10 +6,10 @@ import Merchant from "../models/MerchantModel.js";
 const router = Router();
 
 router.post("/add", async (req, res) => {
-  const { name, mail, phoneNumber } = req.body;
+  const { name, email, phoneNumber } = req.body;
   const merchant = await Merchant({
     name,
-    mail,
+    email,
     phoneNumber,
   });
   await merchant.save();
