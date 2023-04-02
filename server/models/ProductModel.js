@@ -17,7 +17,7 @@ const ProductSchema = new Schema({
     type: String,
     trim: true,
   },
-  MerchantId: {
+  merchantId: {
     type: String,
   },
   // slug: {
