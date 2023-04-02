@@ -1,0 +1,258 @@
+.cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    margin: 10px auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cart-item-quantity h4 {
+    font-size: 14;
+    margin-bottom: 15px;
+    margin-top: 0%;
+    font-weight: 300;
+}
+
+.cart-item-details p {
+    font-size: 30px;
+    color: #040404;
+    margin-bottom: 5px;
+    margin: 0%;
+}
+
+.cart-item-quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100px;
+}
+.cart-item-quantity h3 {
+    margin-top: 0%;
+    font-weight: 400;
+    margin-bottom: 0%;
+}
+
+.cart-item-quantity-input {
+    width: 50px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+}
+.quantity-remove {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.cart-item-total {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.cart-item-buttons {
+    background-color: transparent;
+    border: none;
+    color: #999;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-left: 25%;
+}
+
+.cart-item-buttons:hover {
+    color: #555;
+    cursor: pointer;
+}
+.remove-button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding:0%;
+
+}
+
+.delete-icon:hover {
+    cursor: pointer;
+}
+
+.cart-summary {
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+
+.cart-summary h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #222;
+}
+
+.cart-summary p {
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 500;
+    color: #050707;
+    margin-top: 0%;
+}
+
+.place-order-button {
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.place-order-button:hover {
+    background-color: #148f77;
+}
+
+.order-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.order-popup-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.order-id {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.order-id span {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.copy-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.qr-code {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-code img {
+    max-width: 300px;
+}
+
+.download-button {
+    margin-top: 20px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.close-button {
+    margin-top: 30px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ccc;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+}
+.copy-button,
+.download-button,
+.close-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.copy-button {
+    background-color: #565656;
+    color: #fff;
+}
+
+.copy-button:hover {
+    background-color: #3e3e3e;
+}
+
+.download-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.download-button:hover {
+    background-color: #0062cc;
+}
+
+.close-button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.close-button:hover {
+    background-color: #c82333;
+}

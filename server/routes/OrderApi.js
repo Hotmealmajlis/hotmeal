@@ -12,13 +12,15 @@ import { ROLES } from "../constants/index.js";
 const router = Router()
 
 router.post('/add', async (req, res) => {
-    const { cartId, total, userId, orderId } = req.body;
+    const {  total, items, orderId } = req.body;
     const order = await Order({
-      cartId,
-      userId,
+      // cartId,
+      // userId,
       total,
-      orderId
+      items,
+      orderId,
     });
+    console.log(order);
     await order.save();
     res.status(201).json({ message: "Order Placed :)" });
 });

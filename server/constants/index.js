@@ -3,11 +3,10 @@ export const ROLES = {
     User: 'USER',
     Merchant: 'MERCHANT'
 };
-export const CART_ITEM_STATUS = {
-  Processing: "Processing",
-  Shipped: "Shipped",
+export const ORDER_STATUS = {
+  Ordered: "Ordered",
   Delivered: "Delivered",
   Cancelled: "Cancelled",
-  Not_processed: "Not processed",
+  Confirment: "Confirmed",
 };
 
