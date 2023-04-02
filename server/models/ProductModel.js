@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import slug from "mongoose-slug-generator";
 
 const { Schema } = mongoose;
 
@@ -9,9 +8,6 @@ const options = {
   truncate: 120,
 };
 
-// mongoose.plugin(slug, options);
-
-// Product Schema
 const ProductSchema = new Schema({
   name: {
     type: String,
@@ -20,11 +16,6 @@ const ProductSchema = new Schema({
   merchantId: {
     type: String,
   },
-  // slug: {
-  //   type: String,
-  //   slug: "name",
-  //   unique: true,
-  // },
   imageUrl: {
     type: String,
   },

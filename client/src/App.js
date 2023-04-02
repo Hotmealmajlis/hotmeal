@@ -10,6 +10,7 @@ import ShopDetailsPage from './pages/ShopDetails/ShopDetailsPage';
 import MenuDetailspage from './pages/ShopDetails/MenuDetailspage';
 import ShopRegistrationPage from './pages/ShopRegistration/ShopRegistrationPage';
 import MenuRegistrationPage from './pages/ShopRegistration/MenuRegistrationPage';
+import CartPage from './components/CartPage';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
        <Route path='/menudetails' element={<MenuDetailspage/>} />
        <Route path='/shopregistration' element={<ShopRegistrationPage/>} />
        <Route path='/menuregistration' element={<MenuRegistrationPage/>} />
+       <Route path='/cart' element={<CartPage/>} />
 
 
       </Routes>
