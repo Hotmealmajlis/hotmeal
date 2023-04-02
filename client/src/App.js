@@ -22,10 +22,11 @@ function App() {
        <Route path="/register" element={<Signup/>}/>
        <Route path='/buyer' element={<BuyyerHome/>} />
        <Route path='/seller' element={<SellerHome/>} />
-       <Route path='/shopdetails' element={<ShopDetailsPage/>} />
+     
+       <Route path='/shopdetails/:id' element={<ShopDetailsPage/>} />
        <Route path='/menudetails' element={<MenuDetailspage/>} />
        <Route path='/shopregistration' element={<ShopRegistrationPage/>} />
-       <Route path='/menuregistration' element={<MenuRegistrationPage/>} />
+       <Route path='/menuregistration/:id' element={<MenuRegistrationPage/>} />
 
 
       </Routes>

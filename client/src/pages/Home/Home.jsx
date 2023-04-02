@@ -5,9 +5,37 @@ import Hero from '../../components/Hero'
 import MenuPage from '../../components/MenuPage'
 import ShopsPage from '../../components/ShopsPage'
 import './Home.scss'
+import { useState, useEffect } from 'react'
 
 
 const Home = () => {
+  const [shopData, setShopData] = useState()
+
+    const getShops = async(e) =>{
+    
+    const res = await fetch("http://localhost:4000/merchant/view",{
+      method: "GET",
+      headers: {
+        "Content-Type" : "application/json",
+      },
+     
+    })
+    const data = await res.json()
+    console.log(data)
+   
+
+    if(res.status === 422 || !data){
+     
+      console.log("err")
+    }else{
+      setShopData(data)
+      console.log("merchant datas getted succesfully")
+    }
+  }
+
+    useEffect(() =>{
+      getShops()
+    },[])
    
   return (
     <>
@@ -15,7 +43,7 @@ const Home = () => {
     <Hero/>
     <AboutPage/>
     <AboutRegister/>
-    <ShopsPage/>
+    <ShopsPage shopData={shopData}/>
     <MenuPage/>
     </>
     

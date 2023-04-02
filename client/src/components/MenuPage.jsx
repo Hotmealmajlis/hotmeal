@@ -1,63 +1,59 @@
-import React from 'react'
-import img2 from "../images/signupimage.jpeg"
+import React, {useState} from 'react'
+import img2 from "../images/food2.jpeg"
+import img3 from "../images/img4.jpeg"
 import { useNavigate } from 'react-router-dom'
 
 const MenuPage = () => {
+  const [quantity, setQuantity] = useState(0)
     const navigate = useNavigate()
   return (
-    <div className='shops-page'>
+    <div className='menus-page'>
     <div className="heading">
      <h1>List of Best Menus</h1>
     </div>
-    <div className="card-section" onClick={() => navigate("/menudetails")}>
-      <div className="card">
-      <img src={img2} alt="" />
+    <div className="cards-section" >
+      <div className="menus-card">
+      <img src={img2} alt="" onClick={() => navigate("/menudetails")} / >
         <h3>FoodName</h3>
-        <h4 style={{"color" : "green" , "margin" : "0"}}>$500</h4>
+        <h4 style={{"color" : "green" , "margin" : "0"}}>Price : $500</h4>
+        <p>Quantity: {quantity}</p>
+      <button onClick={() => setQuantity(quantity + 1)}>+</button>
+      <button onClick={() => setQuantity(quantity - 1)}>-</button>
+        <button className='addtocart' onClick={() => navigate('/cart')}>Add to cart</button>
+      </div>
+      <div className="menus-card">
+      <img src={img3} alt="" onClick={() => navigate("/menudetails")} / >
+        <h3>FoodName</h3>
+        <h4 style={{"color" : "green" , "margin" : "0"}}>Price : $500</h4>
+        <p>Quantity: {quantity}</p>
+      <button onClick={() => setQuantity(quantity + 1)}>+</button>
+      <button onClick={() => setQuantity(quantity - 1)}>-</button>
+        <button className='addtocart' onClick={() => navigate('/cart')}>Add to cart</button>
+      </div>
+      <div className="menus-card">
+      <img src={img2} alt="" onClick={() => navigate("/menudetails")} / >
+        <h3>FoodName</h3>
+        <h4 style={{"color" : "green" , "margin" : "0"}}>Price : $500</h4>
+        <p>Quantity: {quantity}</p>
+      <button onClick={() => setQuantity(quantity + 1)}>+</button>
+      <button onClick={() => setQuantity(quantity - 1)}>-</button>
+        <button className='addtocart' onClick={() => navigate('/cart')}>Add to cart</button>
+      </div>
+      <div className="menus-card">
+      <img src={img2} alt="" onClick={() => navigate("/menudetails")} / >
+        <h3>FoodName</h3>
+        <h4 style={{"color" : "green" , "margin" : "0"}}>Price : $500</h4>
+        <p>Quantity: {quantity}</p>
+      <button onClick={() => setQuantity(quantity + 1)}>+</button>
+      <button onClick={() => setQuantity(quantity - 1)}>-</button>
+        <button className='addtocart' onClick={() => navigate('/cart')}>Add to cart</button>
       </div>
 
-      <div className="card">
-      <img src={img2} alt="" />
-        <h3>NameHere</h3>
-        <button>See more</button>
-      </div>
+      
 
-      <div className="card">
-      <img src={img2} alt="" />
-        <h3>NameHere</h3>
-        <button>See more</button>
-      </div>
+      
 
-      <div className="card">
-      <img src={img2} alt="" />
-        <h3>NameHere</h3>
-        <button>See more</button>
-      </div>
-
-      <div className="card">
-      <img src={img2} alt="" />
-        <h3>NameHere</h3>
-        <button>See more</button>
-      </div>
-
-
-      <div className="card">
-      <img src={img2} alt="" />
-        <h3>NameHere</h3>
-        <button>See more</button>
-      </div>
-
-      <div className="card">
-      <img src={img2} alt="" />
-        <h3>NameHere</h3>
-        <button>See more</button>
-      </div>
-
-      <div className="card">
-      <img src={img2} alt="" />
-        <h3>NameHere</h3>
-        <button>See more</button>
-      </div>
+      
     </div>
     </div>
   )

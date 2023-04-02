@@ -30,4 +30,21 @@ router.get('/view', async(req, res)=>{
   }
 })
 
+// get individual merchant
+
+router.get('/view/:id', async(req, res)=>{
+  const {id} = req.params;
+  try{
+
+    const individualmerchant = await Merchant.findOne({_id: id })
+
+    res.status(201).json( individualmerchant )
+
+  } catch (error){
+    res.status(400).json({
+      error: 'Your reauest could not be processed. Please try again.'
+    })
+  }
+})
+
 export default router;
