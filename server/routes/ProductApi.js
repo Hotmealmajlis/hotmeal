@@ -22,22 +22,34 @@ router.post("/add", async (req, res) => {
     res.status(400).json({
       error
     });
+      console.log(error);
+
   }
 });
 
 router.get("/view/:merchantId", async (req, res) => {
   
   try {
+    console.log(`MerchantId requested: ${req.params.merchantId}`);
+
     const product = await Product.find();
-    const filtered = product.filter((product)=>{
-      return product.merchantId === req.params.merchantId
-    })
-    
+    // const products = await Product.find();
+    console.log(`All products: ${JSON.stringify(product)}`);
+
+    // const filtered = product.filter((product)=>{
+    //   return product.merchantId === req.params.merchantId
+    // })
+    const filtered = product.filter((product) => {
+      return product.merchantId === req.params.merchantId;
+    });
+    console.log(product.merchantId);
+    console.log(`Filtered products: ${JSON.stringify(filtered)}`);
     res.status(201).json(filtered);
   } catch (error) {
     res.status(400).json({
       error
     });
+    console.log(error);
   }
 });
 

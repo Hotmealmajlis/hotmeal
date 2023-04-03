@@ -13,8 +13,9 @@ const ProductSchema = new Schema({
     type: String,
     trim: true,
   },
-  merchantId: {
-    type: String,
+  merchantId:{
+    type: Schema.Types.ObjectId,
+    ref: 'merchant',
   },
   imageUrl: {
     type: String,
