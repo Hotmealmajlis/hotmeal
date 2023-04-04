@@ -109,7 +109,7 @@ function Cart() {
               <h3>{item.name}</h3>
               <h4>{item.merchant}</h4>
               <div className="quantity-remove">
-                <input  
+                <input
                   className="cart-item-quantity-input"
                   type="number"
                   value={item.quantity}
@@ -123,6 +123,8 @@ function Cart() {
                     onClick={() => handleRemoveItem(item.id)}
                   >
                     <svg
+                      // eslint-disable-next-line react/prop-types
+
                       xmlns="http://www.w3.org/2000/svg"
                       class="icon icon-tabler icon-tabler-trash"
                       width="20"

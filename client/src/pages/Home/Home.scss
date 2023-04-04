@@ -208,7 +208,7 @@
     padding: 0;
     width: auto;
     height: auto;
-    background-color: #110400;
+    // background-color: #110400;
     padding: 3rem 0 0 5rem;
     .heading{
         text-align: left;
@@ -228,22 +228,16 @@
             width: 280px;
             background: white;
             border-radius: 10px;
-            img{
-                width: 200px;
-                height: 150px;
-                box-shadow: 1px 2px 25px 5px rgb(77, 77, 77);
-               
-            }
-            button{
-                width: 100px;
-                padding: 5px 2px;
-                border: 2px solid rgb(210, 118, 5);
-                background: white;
-                font-weight: bold;
-            }
-            .addtocart{
-                margin: 10px;
-            }
+        //     button{
+        //         width: 100px;
+        //         padding: 5px 2px;
+        //         // border: 2px solid rgb(210, 118, 5);
+        //         background: white;
+        //         font-weight: bold;
+        //     }
+        //     .addtocart{
+        //         margin: 10px;
+        //     }
         }
     }
 }

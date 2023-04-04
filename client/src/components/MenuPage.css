@@ -1,0 +1,133 @@
+.menus-page {
+    margin: 50px;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.merchant-id {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menus-card {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 10px 0px rgba(140, 140, 140, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+.menus-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 5px 15px 0px rgba(52, 52, 52, 0.241);
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    /* 16:9 aspect ratio */
+}
+
+.menu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-name {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+    color: #333333;
+}
+
+.menu-price {
+    font-size: 22px;
+    font-weight: 500;
+    color: #00a64c;
+    margin: 5px 0;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.quantity-label {
+    font-size: 20px;
+    margin: 1px 27px;
+    color: #333333;
+}
+
+.quantity-button {
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+svg:hover line {
+    stroke: #36454F;
+}
+.quantity-button:hover {
+    transform: scale(1.1);
+    
+}
+
+.quantity-button:disabled {
+    /* background-color: lightgray; */
+    cursor: not-allowed;
+}
+
+.add-to-cart-button {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #00a64c;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.add-to-cart-button:hover {
+    transform: scale(1.1);
+    background-color: #008033;
+}
