@@ -12,6 +12,7 @@ import ShopRegistrationPage from './pages/ShopRegistration/ShopRegistrationPage'
 import MenuRegistrationPage from './pages/ShopRegistration/MenuRegistrationPage';
 import Cart from './components/CartPage';
 import MenuPage from './components/MenuPage';
+import Logout from './components/LogoutPage';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
        <Route exact path="/" element={<Home/>}/>
        <Route path="/login" element={<Login/>} />
        <Route path="/register" element={<Signup/>}/>
+       <Route path="/logout" element={<Logout/>}/>
        <Route path='/buyer' element={<BuyyerHome/>} />
        <Route path='/seller' element={<SellerHome/>} />
      

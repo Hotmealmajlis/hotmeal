@@ -25,6 +25,7 @@ function LoginPage() {
       }
     });
     const data = await response.json();
+    console.log(data);
     setMessage(data.message);
     navigate("/")
 
