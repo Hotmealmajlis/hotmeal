@@ -4,6 +4,8 @@ import passportJWT from "passport-jwt";
 import jwt from "jsonwebtoken";
 import passport from "../config/passport.js";
 import auth from "../middleware/auth.js";
+import checkTokenExpiration from "../middleware/checkTokenExpiration.js";
+import role from "../middleware/role.js";
 
 
 const secret = "secret"
@@ -122,4 +124,12 @@ export const login = async (req, res)=>{
             error: 'Your request could not be processed!'
         })
     }
+}
+
+export const logout = async (req, res) => {
+  // clear the cookie that holds the JWT token
+  res.clearCookie("jwtToken");
+  // return success message
+  res.status(200).json({ message: "Logout successful" });
+  console.log("logged out")
 }

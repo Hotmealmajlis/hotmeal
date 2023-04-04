@@ -1,11 +1,13 @@
 import { Router } from "express";
 import mongoose from "mongoose";
+import auth from "../middleware/auth.js";
+
 
 import Product from "../models/ProductModel.js";
 
 const router = Router();
 
-router.post("/add", async (req, res) => {
+router.post("/add", auth, async (req, res) => {
   try {
     const { name, price, merchantId } = req.body;
 
@@ -25,7 +27,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
-router.get("/view/:merchantId", async (req, res) => {
+router.get("/view/:merchantId", auth, async (req, res) => {
   // const { merchantId } = req.params;
 
   try {
@@ -44,7 +46,7 @@ router.get("/view/:merchantId", async (req, res) => {
 
 //view all products
 
-router.get("/view/", async (req, res) => {
+router.get("/view/", auth, async (req, res) => {
   try {
     const product = await Product.find();
 
