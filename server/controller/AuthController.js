@@ -1,6 +1,10 @@
 import bcrypt from 'bcrypt'
 import User from '../models/UserModel.js'
-import jwt from "jsonwebtoken"
+import passportJWT from "passport-jwt";
+import jwt from "jsonwebtoken";
+import passport from "../config/passport.js";
+import auth from "../middleware/auth.js";
+
 
 const secret = "secret"
 
@@ -97,7 +101,7 @@ export const login = async (req, res)=>{
             _id: user._id
         }
 
-        const token = jwt.sign(payload, "secret")
+        const token = jwt.sign(payload, "your_jwt_secret", { expiresIn: "1h" });
         if (!token) {
             throw new Error();
         }

@@ -2,20 +2,20 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const options = {
-  separator: "-",
-  lang: "en",
-  truncate: 120,
-};
+// const options = {
+//   separator: "-",
+//   lang: "en",
+//   truncate: 120,
+// };
 
 const ProductSchema = new Schema({
   name: {
     type: String,
     trim: true,
   },
-  merchantId:{
-    type: Schema.Types.ObjectId,
-    ref: 'merchant',
+  merchantId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "merchant",
   },
   imageUrl: {
     type: String,

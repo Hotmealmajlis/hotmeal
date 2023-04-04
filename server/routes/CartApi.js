@@ -6,7 +6,7 @@ import Product from "../models/ProductModel.js";
 const router = Router();
 
 router.post("/add", async (req, res) => {
-  try{
+  try {
     const { name, price, merchantId } = req.body;
 
     // const mId = req.params.id;
@@ -14,31 +14,29 @@ router.post("/add", async (req, res) => {
       name,
       merchantId,
       price,
-      
     });
     await product.save();
     res.status(201).json({ message: "Product added :)" });
   } catch (error) {
     res.status(400).json({
-      error
+      error,
     });
-      console.log(error);
-
+    console.log(error);
   }
 });
 
 router.get("/view/:merchantId", async (req, res) => {
   // const { merchantId } = req.params;
-  
+
   try {
     const merchantId = req.params.merchantId;
 
     const products = await Product.find({ merchantId }).populate("merchantId");
     // console.log(products)
-    res.status(200).json( products );
+    res.status(200).json(products);
   } catch (error) {
     res.status(400).json({
-      error
+      error,
     });
     console.log(error);
   }
@@ -47,18 +45,15 @@ router.get("/view/:merchantId", async (req, res) => {
 //view all products
 
 router.get("/view/", async (req, res) => {
-  
   try {
     const product = await Product.find();
-    
-    
+
     res.status(201).json(product);
   } catch (error) {
     res.status(400).json({
-      error
+      error,
     });
   }
 });
-
 
 export default router;
