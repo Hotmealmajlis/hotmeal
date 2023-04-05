@@ -1,6 +1,5 @@
 import bcrypt from 'bcrypt'
 import User from '../models/UserModel.js'
-import passportJWT from "passport-jwt";
 import jwt from "jsonwebtoken";
 import passport from "../config/passport.js";
 import auth from "../middleware/auth.js";
@@ -73,7 +72,7 @@ export const register = async (req, res)=>{
 export const login = async (req, res)=>{
     try{
         const { email, password } = req.body;
-
+        console.log(email);
         if (!email) {
         return res
             .status(400)
@@ -111,7 +110,7 @@ export const login = async (req, res)=>{
         res.status(200).json({
             message: "user logged in successfully :)",
             success: true,
-            token: `Bearer ${token}`,
+            token: `${token}`,
             user: {
                 id: user.id,
                 username: user.username,
@@ -125,6 +124,18 @@ export const login = async (req, res)=>{
         })
     }
 }
+
+export const profile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 export const logout = async (req, res) => {
   // clear the cookie that holds the JWT token

@@ -6,6 +6,10 @@ const CartItemSchema = new Schema({
   product: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Product",
+    populate: {
+      path: "product",
+      select: "name price",
+    },
   },
   quantity: Number,
   totalPrice: {
