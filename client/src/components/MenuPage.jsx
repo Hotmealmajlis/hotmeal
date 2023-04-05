@@ -11,7 +11,7 @@ const MenuPage = () => {
   const { merchantId } = useParams();
   
   const [merchant, setMerchant] = useState(null);
-  // console.log(merchant && merchant.name);
+  console.log(merchant && merchant.name);
 
     useEffect(() => {
     const fetchMerchant = async () => {
@@ -54,25 +54,27 @@ const MenuPage = () => {
   // add product to cart
   const addToCart = async (product, quantity, buttonIndex) => {
      try {
-      setLoading(true);
-      setClickedButtonIndex(buttonIndex);
-      const { name, price } = product;
-      const totalPrice = price * quantity;
+       setLoading(true);
+       setClickedButtonIndex(buttonIndex);
+       const { price , _id} = product;
+       const totalPrice = price * quantity;
+       const token = localStorage.getItem("token");
+       console.log(token)
       const response = await fetch("http://localhost:4000/cart/add", {
         method: "POST",
         body: JSON.stringify({
-          items: [{
-          product: {
-            name,
-            price,
+          items: [
+          {
+            product: _id,
+            quantity,
+            totalPrice,
           },
-          quantity,
-          totalPrice,
-        }],
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
+        ],
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
       });
       //   alert('Item added to cart');
       setLoading(false);
@@ -124,7 +126,7 @@ const MenuPage = () => {
       </div>
       <ToastContainer/>
       <div className="cards-section">
-        {menuData &&
+        {Array.isArray(menuData) &&
           menuData.map((item, index) => {
             return (
               <div className="menus-card" key={item._id}>
@@ -208,6 +210,15 @@ const MenuPage = () => {
             );
           })}
       </div>
+      <a href="/cart" className="cart-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="35" height="35" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <circle cx="6" cy="19" r="2" />
+          <circle cx="17" cy="19" r="2" />
+          <path d="M17 17h-11v-14h-2" />
+          <path d="M6 5l14 1l-1 7h-13" />
+        </svg>
+      </a>
     </div>
 
   );
