@@ -1,6 +1,11 @@
 import bcrypt from 'bcrypt'
 import User from '../models/UserModel.js'
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
+import passport from "../config/passport.js";
+import auth from "../middleware/auth.js";
+import checkTokenExpiration from "../middleware/checkTokenExpiration.js";
+import role from "../middleware/role.js";
+
 
 const secret = "secret"
 
@@ -67,7 +72,7 @@ export const register = async (req, res)=>{
 export const login = async (req, res)=>{
     try{
         const { email, password } = req.body;
-
+        console.log(email);
         if (!email) {
         return res
             .status(400)
@@ -97,7 +102,7 @@ export const login = async (req, res)=>{
             _id: user._id
         }
 
-        const token = jwt.sign(payload, "secret")
+        const token = jwt.sign(payload, "your_jwt_secret", { expiresIn: "1h" });
         if (!token) {
             throw new Error();
         }
@@ -105,7 +110,7 @@ export const login = async (req, res)=>{
         res.status(200).json({
             message: "user logged in successfully :)",
             success: true,
-            token: `Bearer ${token}`,
+            token: `${token}`,
             user: {
                 id: user.id,
                 username: user.username,
@@ -118,4 +123,24 @@ export const login = async (req, res)=>{
             error: 'Your request could not be processed!'
         })
     }
+}
+
+export const profile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const logout = async (req, res) => {
+  // clear the cookie that holds the JWT token
+  res.clearCookie("jwtToken");
+  // return success message
+  res.status(200).json({ message: "Logout successful" });
+  console.log("logged out")
 }

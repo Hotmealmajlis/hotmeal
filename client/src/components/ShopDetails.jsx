@@ -53,7 +53,7 @@ if(res.status === 422 || !data){
 
 useEffect(() =>{
   getShopDetails()
-},[])
+},)
 
     
 

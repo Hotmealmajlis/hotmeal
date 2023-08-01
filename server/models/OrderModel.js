@@ -4,11 +4,11 @@ const { Schema } = mongoose;
 
 const OrderSchema = new Schema({
   cart: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Cart'
   },
   user: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
   orderId: {

@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const options = {
-  separator: "-",
-  lang: "en",
-  truncate: 120,
-};
+// const options = {
+//   separator: "-",
+//   lang: "en",
+//   truncate: 120,
+// };
 
 const ProductSchema = new Schema({
   name: {
@@ -14,7 +14,8 @@ const ProductSchema = new Schema({
     trim: true,
   },
   merchantId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "merchant",
   },
   imageUrl: {
     type: String,

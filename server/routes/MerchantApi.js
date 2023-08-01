@@ -1,5 +1,6 @@
 import { Router } from "express";
 import mongoose from "mongoose";
+import auth from "../middleware/auth.js";
 
 import Merchant from "../models/MerchantModel.js";
 
@@ -32,14 +33,13 @@ router.get('/view', async(req, res)=>{
 
 // get individual merchant
 
-router.get('/view/:id', async(req, res)=>{
+router.get('/view/:id',  async(req, res)=>{
   const {id} = req.params;
   try{
 
-    const individualmerchant = await Merchant.findOne({_id: id })
-
-    res.status(201).json( individualmerchant )
-
+    const merchant = await Merchant.findOne({_id: id })
+    console.log(merchant)
+    res.status(201).json( merchant )
   } catch (error){
     res.status(400).json({
       error: 'Your reauest could not be processed. Please try again.'

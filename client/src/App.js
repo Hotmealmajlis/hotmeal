@@ -10,8 +10,10 @@ import ShopDetailsPage from './pages/ShopDetails/ShopDetailsPage';
 import MenuDetailspage from './pages/ShopDetails/MenuDetailspage';
 import ShopRegistrationPage from './pages/ShopRegistration/ShopRegistrationPage';
 import MenuRegistrationPage from './pages/ShopRegistration/MenuRegistrationPage';
-import CartPage from './components/CartPage';
 import Cart from './components/CartPage';
+import MenuPage from './components/MenuPage';
+import Logout from './components/LogoutPage';
+import UserProfile from './components/UserProfilePage';
 
 
 function App() {
@@ -20,13 +22,20 @@ function App() {
 
       <Routes>
        <Route exact path="/" element={<Home/>}/>
+       <Route exact path="/home" element={<Home/>}/>
        <Route path="/login" element={<Login/>} />
+       <Route path="/signin" element={<Login/>} />
        <Route path="/register" element={<Signup/>}/>
+       <Route path="/signup" element={<Signup/>}/>
+       <Route path="/logout" element={<Logout/>}/>
+       <Route path="/profile" element={<UserProfile/>}/>
        <Route path='/buyer' element={<BuyyerHome/>} />
        <Route path='/seller' element={<SellerHome/>} />
      
        <Route path='/shopdetails/:id' element={<ShopDetailsPage/>} />
        <Route path='/menudetails' element={<MenuDetailspage/>} />
+       <Route path='/menu' element={<MenuPage/>} />
+       <Route path='/menu/:merchantId' element={<MenuPage/>} />
        <Route path='/shopregistration' element={<ShopRegistrationPage/>} />
        <Route path='/menuregistration' element={<MenuRegistrationPage/>} />
        <Route path='/cart' element={<Cart/>} />

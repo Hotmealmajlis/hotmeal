@@ -22,22 +22,25 @@ router.post("/add", async (req, res) => {
     res.status(400).json({
       error
     });
+      console.log(error);
+
   }
 });
 
 router.get("/view/:merchantId", async (req, res) => {
+  // const { merchantId } = req.params;
   
   try {
-    const product = await Product.find();
-    const filtered = product.filter((product)=>{
-      return product.merchantId === req.params.merchantId
-    })
-    
-    res.status(201).json(filtered);
+    const merchantId = req.params.merchantId;
+
+    const products = await Product.find({ merchantId }).populate("merchantId");
+    // console.log(products)
+    res.status(200).json( products );
   } catch (error) {
     res.status(400).json({
       error
     });
+    console.log(error);
   }
 });
 
@@ -56,8 +59,6 @@ router.get("/view/", async (req, res) => {
     });
   }
 });
-
-
 
 
 export default router;

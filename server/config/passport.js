@@ -1,26 +1,19 @@
-import passport from 'passport'
-import pkg from 'passport-jwt'
-import User from '../models/UserModel.js'
+import passport from "passport";
+import passportJWT from "passport-jwt";
+import {
+  Strategy as JWTStrategy,
+  ExtractJwt as ExtractJWT,
+} from "passport-jwt";
 
-const JwtStrategy = pkg.Strategy
-const ExtractJwt = pkg.ExtractJwt
-
-let opts = {}
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrkey = "secret";
+const options = {
+  jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+  secretOrKey: "your_jwt_secret",
+};
 
 passport.use(
-  new JwtStrategy(opts, function (jwt_payload, done) {
-    User.findOne({ id: jwt_payload.sub }, function (err, user) {
-      if (err) {
-        return done(err, false);
-      }
-      if (user) {
-        return done(null, user);
-      } else {
-        return done(null, false);
-        // or you could create a new account
-      }
-    });
+  new JWTStrategy(options, function (jwtPayload, done) {
+    return done(null, jwtPayload);
   })
 );
+
+export default passport;

@@ -69,7 +69,7 @@ if(res.status === 422 || !data){
     <AboutPage/>
     <AboutRegister/>
     <ShopsPage shopData={shopData} />
-    <MenuPage menuData={menuData}/>
+    {/* <MenuPage menuData={menuData}/> */}
     </>
     
   )

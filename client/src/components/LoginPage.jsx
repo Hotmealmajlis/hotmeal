@@ -7,6 +7,8 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -17,16 +19,46 @@ function LoginPage() {
   };
 
   const handleSubmit = async () => {
-    const response = await fetch('http://localhost:4000/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: {
-        'Content-Type': 'application/json'
+    // const response = await fetch('http://localhost:4000/auth/login', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ email, password }),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // });
+    // const data = await response.json();
+    // console.log(data);
+    // setMessage(data.message);
+    // navigate("/")
+
+    try {
+      const response = await fetch("http://localhost:4000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(response.statusText);
       }
-    });
-    const data = await response.json();
-    setMessage(data.message);
-    navigate("/")
+
+      const data = await response.json();
+
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      console.log(data)
+
+      setLoggedIn(true);
+      navigate('/home')
+    } catch (error) {
+      console.error(error);
+    }
 
   };
 

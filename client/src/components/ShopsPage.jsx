@@ -9,30 +9,45 @@ const ShopsPage = ({shopData}) => {
     
     
   return (
-    <div className='shops-page'>
-    <div className="heading">
-     <h1>List of Best Restaurents</h1>
+    <div className="shops-page">
+      <div className="heading">
+        <h1>List of Best Restaurents</h1>
+      </div>
+      <div className="card-section">
+        {shopData &&
+          shopData.map((item) => (
+            <div
+              key={item.id}
+              className="card"
+              onClick={() => navigate(`/shopdetails/${item._id}`)}
+            >
+              <div className="image-container">
+                <img src={img1} alt="" />
+              </div>
+              <h3>{item.name}</h3>
+              <div className="buttons-container">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.location.href = `tel:${item.phoneNumber}`;
+                  }}
+                >
+                  Call
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/menu/${item._id}`);
+                  }}
+                >
+                  View Menu
+                </button>
+              </div>
+            </div>
+          ))}
+      </div>
     </div>
-    <div className="card-section">
-    { shopData && shopData.map((item) => 
-       
-         
-         
-         <div className="card" onClick={() => navigate(`/shopdetails/${item._id}`)}>
-         <img src={img1} alt="" />
-           <h3>{item.name}</h3>
-           <button onClick={() => {
-    window.location.href = `tel:${item.phoneNumber}`; // replace with your phone number
-  }}>call</button>
-         </div>
-         
-      
-    )}
-
-      
-    </div>
-    </div>
-  )
+  );
 }
 
 export default ShopsPage
